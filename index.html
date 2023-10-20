@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    
+    <div id="header">
+        
+        <div id="container">
+            <nav>
+                <img src="images/pic3.jpg" class="logo">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#Contact">Social media</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+
+            </nav>
+        </div> 
+     
+            <div class="back">
+                <img onmouseover="setNewImage()" onmouseout="setOldImage" src="images/pic1.jpg" class="jag">
+              </div>
+            <div class="header-text">
+                    <h1>Hello I'm <span>MYTHREYE</span></h1>
+                    <p>This is my portfolio
+                    <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis necessitatibus iusto quasi molestiae tempora libero eum sit fuga dolor vero? Officia repellendus facilis perferendis est ut nam magni. Cum, aut!
+                <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas quidem quibusdam distinctio, ipsam harum facilis earum accusantium reiciendis provident tenetur, vel officiis recusandae necessitatibus corrupti veritatis alias velit! Eius, beatae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, necessitatibus alias reiciendis delectus mollitia rerum non doloribus sed labore quod et temporibus nulla illum, veniam perspiciatis maxime placeat ad minus!</p>
+                    <a href="images/pic2.webp" download >Download CV</a>
+                    <p>Contact: mythreye1001@gmail.com</p>
+                
+            </div>
+        
+    </div> 
+    <div id="Contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-envelope" style="color: #cdd110;"></i> mythreye1001@gmail.com</p>
+                <p><i class="fas fa-phone-square-alt" style="color: #cdd110;"></i>1234567890</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/mythreye-s-9862b2239"><i class="fab fa-linkedin" style="font-size: 30px; color: #fff;"></i></a>
+                    <a href="https://instagram.com/mythreye_s?igshid=MzMyNGUyNmU2YQ=="><i class="fab fa-instagram" style="font-size: 30px; color: #fff;"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp" style="font-size: 30px; color: #fff;"></i></a>
+            
+            </div>
+            <div class="contact-right">
+              <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit" class = "subbtn">Submit</button>
+            </form> 
+            <span id="msg"></span>  
+            </div>
+        </div>
+
+    </div> 
+    </div>
+    </div>
+    <div class="tq">
+        <p>Thank you!</p>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx1JUopmaKX57JjAImptAvlJq2aTlfVR7QndSKxX4NywzDM-oWN2xo1JWsCkYzZ1w8C/exec'
+        const form = document.forms['submit-to-google-sheet']
+          const msg = document.getElementById("msg")
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+              msg.innerHTML ="Message sent successfully!"
+              setTimeout(function(){
+                  msg.innerHTML=""
+              },5000)
+              form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      
+      
+      </script>
+
+</body>
+</html>
